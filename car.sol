@@ -185,7 +185,7 @@ contract CarRental is Ownable {
             return customers[_customer].etherDebt;
         }        
     }
-  
+ /*
     function startRental (uint8 _bikeId) payable public{
         require(customers[msg.sender].etherDebt == 0, "Not allowed to rent if debt is pending");
         require(!bikes[_bikeId].notAvailable, "Car not available");
@@ -231,7 +231,7 @@ contract CarRental is Ownable {
 
          emit RentalStop(msg.sender, block.timestamp, amountToPay, customers[msg.sender].etherDebt, block.number);
      }
-    
+  */  
      function setRate(uint _rate) external onlyOwner {
          rate = _rate;
      }
