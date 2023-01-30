@@ -77,7 +77,6 @@ contract CarRental is Ownable {
         _;
     }
 
-
     event RentalStart(address _customer, uint _startTime, uint _rate, uint8 _CarId, uint _blockId);
     event RentalStop(address _customer, uint _stopTime, uint _totalAmount, uint _totalDebt, uint _blockId);
     event FundsReceived(address _customer, uint _etherAmount, uint _tokenAmount);
@@ -87,8 +86,6 @@ contract CarRental is Ownable {
     event TokensReceived(address _customer, uint _tokenAmount);    
     event DebtUpdated (address _customer, uint _origAmount, uint _pendingAmount, uint _debitedAmount, uint _tokenDebitedAmount);
     event TokensBought (address _customer,uint _etherAmount, uint _tokenAmount);
-
-}
 
     constructor (Token _token) Ownable() {
         token = _token;
@@ -275,3 +272,4 @@ contract CarRental is Ownable {
      function getTokenAccountBalance(address customer) public view returns (uint) {
          return customers[customer].tokenBalance;
      }
+}
