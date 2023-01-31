@@ -7,7 +7,7 @@ contract CarRental is Ownable {
    
     string public name = "Car Rental";
     Token token; //Reference to deployed ERC20 Token contract
-    address public payable wallet; //Address of the owner of Car Rental Shop
+    address payable wallet; //Address of the owner of Car Rental Shop
   //  uint8 collateralPremium=20; // discount % to be applied to standard rate for PREMIUM "collateralized customers"
     uint8 tokenConversionRate = 2; //conversion rate between Ether and Token, i.e. 1 Ether = 2 Token
   //  uint rate=1; //amount of wei to be charged per second (i.e. "standard rate")
