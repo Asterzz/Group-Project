@@ -8,20 +8,20 @@ contract CarRental is Ownable {
     string public name = "Car Rental";
     Token token; //Reference to deployed ERC20 Token contract
     address public payable wallet; //Address of the owner of Car Rental Shop
-    uint8 collateralPremium=20; // discount % to be applied to standard rate for PREMIUM "collateralized customers"
+  //  uint8 collateralPremium=20; // discount % to be applied to standard rate for PREMIUM "collateralized customers"
     uint8 tokenConversionRate = 2; //conversion rate between Ether and Token, i.e. 1 Ether = 2 Token
-    uint rate=1; //amount of wei to be charged per second (i.e. "standard rate")
+  //  uint rate=1; //amount of wei to be charged per second (i.e. "standard rate")
     uint etherMinBalance=1; //minimum amount of ETH required to start Car rental
     uint tokenMinBalance= 1; //minimum amount of Tokens required to start Car rental   
-    uint etherCollateralThreshold=1; //Threshold amount of ETH required to get PREMIUM "collateralized" rate
-    uint tokenCollateralThreshold=1; //Threshold amount of Tokens required to get PREMIUM "collateralized" rate
+  //  uint etherCollateralThreshold=1; //Threshold amount of ETH required to get PREMIUM "collateralized" rate
+  //  uint tokenCollateralThreshold=1; //Threshold amount of Tokens required to get PREMIUM "collateralized" rate
     uint public no_of_agreement = 0; //agreement no.
     
     struct Car {                
-        uint8 CarId; // Id of the car
+        uint8 carId; // Id of the car
         string carbrand;  // characteristcs of the car
         string color;
-        string type;
+        string species;
         uint rent_per_hour;
         uint securityDeposit;
         bool notAvailable;
@@ -30,9 +30,8 @@ contract CarRental is Ownable {
     }
 
     struct Customer { 
-        uint8 CarId; // Id of rented Car       
+        uint8 carId; // Id of rented Car       
         bool isRenting; // in order to start renting, `isRenting` should be false
-        uint rate; //customer's applicable rental rate
         uint etherBalance; // customer internal ether account
         uint tokenBalance; // customer internal token account
         uint startTime; //starting time of the rental (in seconds)
@@ -78,7 +77,7 @@ contract CarRental is Ownable {
     }
 
 
-    event RentalStart(address _customer, uint _startTime, uint _rate, uint8 _CarId, uint _blockId);
+   // event RentalStart(address _customer, uint _startTime, uint _rate, uint8 _CarId, uint _blockId);
     event RentalStop(address _customer, uint _stopTime, uint _totalAmount, uint _totalDebt, uint _blockId);
     event FundsReceived(address _customer, uint _etherAmount, uint _tokenAmount);
     event FundsWithdrawned(address _customer);
